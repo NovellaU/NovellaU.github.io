@@ -1,53 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en" class="transition duration-300">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novella | Technical Account Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script async src="https://api.glia.com/salemove_integration.js"></script>
-  <title>Novella's Personal Site</title>
+
+  <!-- Enable dark mode with class strategy -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
 </head>
-  
-  <iframe width="1600" height="800" src="https://rennosepp.github.io/" frameborder="0" allowfullscreen></iframe>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans transition duration-300">
 
-<body>
-  
-  <label for="Name">Masked Cobra:</label>
-<input class="sm_cobrowsing_masked_field" type="text" id="Name" name="Name" placeholder="Novella">
+  <!-- Navigation -->
+  <header class="flex justify-between items-center p-6 bg-white dark:bg-gray-800 shadow-md transition duration-300">
+    <h1 class="text-xl font-bold text-gray-800 dark:text-gray-100">Novella Uiga</h1>
+    <nav class="flex items-center space-x-6 text-sm">
+      <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+      <a href="#work" class="hover:text-indigo-600 dark:hover:text-indigo-400">Work</a>
+      <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a>
+      <button id="themeToggle" class="ml-4 px-3 py-1 text-xs rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+        Toggle Theme
+      </button>
+    </nav>
+  </header>
 
-  
-  <label for="Name">Unmaskede Cobra></label>
-<input type="text" id="Name" name="Name" placeholder="Version 2">
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto p-10">
+    <div class="md:w-1/2 space-y-6">
+      <h2 class="text-4xl font-bold leading-tight text-gray-800 dark:text-white">
+        Hi, I’m Novella.
+        <br />
+        A builder of trust, teams, and technical solutions.
+      </h2>
+      <p class="text-gray-700 dark:text-gray-300 text-lg">
+        I specialize in bridging the gap between complex technologies and real-world client impact.
+        From scaling teams to solving deep technical challenges, I lead with curiosity, clarity, and care.
+      </p>
+      <a href="#contact" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
+        Let’s Connect
+      </a>
+    </div>
+    <div class="md:w-1/2 mt-10 md:mt-0">
+      <img src="https://via.placeholder.com/400x400" alt="Photo of Novella" class="rounded-2xl shadow-lg">
+    </div>
+  </section>
 
+  <!-- About Section -->
+  <section id="about" class="bg-white dark:bg-gray-800 py-16 px-6 transition duration-300">
+    <div class="max-w-3xl mx-auto space-y-6">
+      <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">About Me</h3>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+        With a background in support engineering and technical account management, I’ve led global, remote-first teams and driven initiatives that align customer needs with business outcomes.
+        I’m passionate about AI, people-first leadership, and helping teams do their best work.
+      </p>
+    </div>
+  </section>
 
-  
-  <h1>Novella</h1>
-  background-color:#000;
-  color:#fff;
-      <button class="omnibrowse-code-button" onclick="document.body.appendChild(document.createElement('sm-visitor-code'))">Visitor code</button><br>
-  <a href="https://novellau.github.io/firstlink.html">Second page</a>
-  <p><em>This page is meant for testing out <strong>BR's</strong> and other cool stuff</em></p>
-  <p>I ❤️dogs, being in the sun and learning new stuff, such as creating this website</p>
-  <hr>
-  <h3>Education</h3>
-  <table>
-    <tr>
-      <td>2015-2018</td>
-      <td>High school: Tallinn English College</td>
-    </tr>
-    <tr>
-      <td>2019-2022</td>
-      <td>University: TalTech, Cyber-Physical Systems Engineering</td>
-    </tr>
-  </table>
-  <hr>
-<h3>Hobbies</h3>
-<ol>
-  <li>Solaride</li>
-  <li>Cooking</li>
-  <li>Discgolf</li>
-  <li>Watching movies&series</li>
-</ol>
+  <!-- Contact Section -->
+  <section id="contact" class="bg-indigo-50 dark:bg-gray-900 py-16 px-6 transition duration-300">
+    <div class="max-w-xl mx-auto text-center space-y-6">
+      <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">Let’s Work Together</h3>
+      <p class="text-gray-700 dark:text-gray-300">Open to collaborations, speaking, or just connecting over interesting ideas.</p>
+      <a href="mailto:youremail@example.com" class="inline-block bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
+        Email Me
+      </a>
 
+      <!-- Additional Buttons -->
+      <div class="mt-6 space-y-4">
+        <button
+          class="omnibrowse-code-button bg-gray-800 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition"
+          onclick="document.body.appendChild(document.createElement('sm-visitor-code'))"
+        >
+          Visitor Code
+        </button>
+        <br />
+        <a
+          href="https://novellau.github.io/firstlink.html"
+          class="inline-block text-indigo-700 dark:text-indigo-400 underline hover:text-indigo-900 dark:hover:text-indigo-300"
+        >
+          Second page
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center text-gray-500 dark:text-gray-400 text-sm py-8 transition duration-300">
+    © 2025 Novella Uiga. All rights reserved.
+  </footer>
+
+  <!-- Dark mode toggle logic -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+    });
+  </script>
 </body>
-
 </html>
