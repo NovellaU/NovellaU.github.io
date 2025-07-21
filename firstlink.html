@@ -1,14 +1,583 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script async src="https://api.salemove.com/salemove_integration.js"></script>
-  </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of Novella - Your Community Bank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script async src="https://api.glia.com/salemove_integration.js"></script>
+    sm.getApi({version: 'v1'}).then(function(api) {
+    api.setLocale('bulles-francais'); // can be anything from the list above
+    });
+    <style>
+        :root {
+            --primary-color: #007BFF; /* A vibrant blue for trust and modernity */
+            --secondary-color: #28A745; /* A green for growth and security */
+            --accent-color: #FFC107; /* A warm yellow for friendliness */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+            --white: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6)), url('https://source.unsplash.com/1600x900/?vancouver,cityscape') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #FFDA5C; /* Slightly darker yellow */
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card i {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        /* About Us */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+        }
+
+        /* Testimonials */
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto; /* For potential future JS carousel or just for demonstration */
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 20px; /* Space for scrollbar */
+        }
+
+        .testimonial-item {
+            flex: 0 0 90%; /* Occupy 90% of container on small screens */
+            max-width: 500px;
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: 0 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            scroll-snap-align: center;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .testimonial-item .author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 2.8em;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            text-align: center;
+            padding: 15px;
+            background-color: #ffeb3b; /* A soft yellow for visibility */
+            color: #333;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .disclaimer p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer .social-links a {
+            color: var(--white);
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .github-button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .github-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 15px 10px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-item {
+                flex: 0 0 100%;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .cta-section {
+                padding: 50px 15px;
+            }
+
+            .cta-section h2 {
+                font-size: 2em;
+            }
+
+            .cta-section p {
+                font-size: 1em;
+            }
+
+            footer .footer-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Bank of Novella</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#loans">Loans & Mortgages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<h1>About this</h1>
-<p>Nothing to say.</p>
-<br>
-<a href="https://novellau.github.io/">To Home</a>
+    <main>
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> This is not a real bank, nor does it claim to be. This is a mock page created for demonstration purposes.</p>
+        </div>
 
+        <section class="hero">
+            <div class="container">
+                <h1>Banking Designed Around You, in Vancouver</h1>
+                <p>Welcome to Bank of Novella, your local bank committed to empowering our community through personal and innovative financial solutions.</p>
+                <a href="#services" class="btn btn-primary">Explore Our Services</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Who We Are</h2>
+                <div class="about-content">
+                    <p>Bank of Novella is more than just a bank; we are a community-focused financial institution proudly serving the people of Vancouver and surrounding areas. We are dedicated to providing accessible, transparent, and personalized financial services.</p>
+                    <p>Since our inception, we have been committed to fostering financial well-being and contributing to the economic growth of our vibrant city.</p>
+                    <p>Join us and experience the difference of banking with a purpose.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section bg-light">
+            <div class="container">
+                <h2>Our Customer-Centric Services</h2>
+                <div class="cards">
+                    <div class="card">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Personal Banking</h3>
+                        <p>Savings accounts, chequing accounts, GICs, and more. Manage your daily finances with ease and grow your wealth.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Business Banking</h3>
+                        <p>Tailored solutions for local businesses, including operating accounts, lines of credit, and merchant services.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Loans & Mortgages</h3>
+                        <p>Competitive rates on personal loans, car loans, home equity lines of credit, and mortgages to help you achieve your goals.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Investments & Wealth</h3>
+                        <p>Expert advice and a range of investment options to help you plan for retirement, education, or any future dream.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Digital Banking</h3>
+                        <p>Secure and convenient online and mobile banking, allowing you to manage your accounts anytime, anywhere.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h3>Insurance Solutions</h3>
+                        <p>Protect what matters most with our various insurance offerings, from life to travel insurance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loans" class="section">
+            <div class="container">
+                <h2>Loans & Mortgages for Your Life Stages</h2>
+                <div class="about-content">
+                    <p>Whether you're buying your first home in Kitsilano, upgrading your vehicle, or consolidating debt, Bank of Novella offers flexible and affordable lending solutions. Our expert advisors are here to guide you through every step, ensuring you get the best rates and terms to fit your unique financial situation.</p>
+                    <p>We pride ourselves on a personalized approach, understanding that every customer's needs are different. Let us help you turn your aspirations into reality.</p>
+                    <a href="#" class="btn btn-primary">Get a Free Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-item">
+                        <p>"Bank of Novella has been an incredible partner for my small business. Their business banking services are top-notch and their team truly cares about local success."</p>
+                        <div class="author">- Sarah L., Small Business Owner, Gastown</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Getting my mortgage through Bank of Novella was a seamless experience. They made the complex process so easy to understand and were always there to answer my questions."</p>
+                        <div class="author">- David R., Homeowner, Richmond</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"I love the personalized service at Bank of Novella. I feel like more than just a number, and their financial advice has been invaluable."</p>
+                        <div class="author">- Emily V., Student, UBC</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <h2>Ready to Experience the Bank of Novella Difference?</h2>
+                <p>Join our growing community of customers who benefit from personalized service, competitive rates, and a commitment to local values. We're here to help you achieve your financial goals.</p>
+                <a href="mailto:info@bankofnovella.ca" class="btn">Get in Touch Today</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#loans">Loans</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 Bank of Novella. All rights reserved. Proudly serving Vancouver, BC.</p>
+            <button class="github-button" onclick="location.href='https://novellau.github.io/'">Visit NovellaU GitHub</button>
+        </div>
+    </footer>
 </body>
 </html>
