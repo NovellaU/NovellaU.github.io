@@ -8,9 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script async src="https://api.glia.com/salemove_integration.js"></script>
-    sm.getApi({version: 'v1'}).then(function(api) {
-    api.setLocale('bulles-francais'); // can be anything from the list above
-    });
+   
     <style>
         :root {
             --primary-color: #007BFF; /* A vibrant blue for trust and modernity */
