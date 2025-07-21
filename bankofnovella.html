@@ -577,5 +577,14 @@
             <button class="github-button" onclick="location.href='https://novellau.github.io/'">Visit NovellaU GitHub</button>
         </div>
     </footer>
+
+    <script>
+        // Glia (formerly Salemove) API initialization
+        sm.getApi({version: 'v1'}).then(function(api) {
+            api.setLocale('bulles-francais');
+            // You can add more Glia API calls here if needed
+        });
+    </script>
+    
 </body>
 </html>
