@@ -1,12 +1,21 @@
-<!DOCTYPE html>
 <html>
-<body>
-   <script async src="https://api.glia.com/salemove_integration.js"></script>
-
-<h1>Page for Testing iframes</h1>
-<p>Whole iframed page</p>
-<iframe src="https://rennosepp.github.io/" title="W3Schools Free Online Web Tutorials"></iframe>
-
-
-</body>
+    <head> 
+        <script async src="https://api.glia.com/salemove_integration.js"></script>
+        <style> 
+            #frame { 
+                width: 300px; 
+                height: 200px; 
+                resize: both; 
+            } 
+        </style> 
+        <h4 style="color:#006400; font-size:24px;">
+            Adjust width and height manually to fit 
+            iframe content using CSS
+        </h4>
+    </head> 
+    <body style="background-color:#ffffff"> 
+        <iframe height="100%" width="100%" 
+            style="border:3px solid black;" 
+            src="https://rennosepp.github.io/" id="frame"></iframe>
+    </body> 
 </html>
